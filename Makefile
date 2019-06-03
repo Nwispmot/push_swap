@@ -4,7 +4,7 @@ LIB_DIR	 = ./libft
 NAME	 = push_swap
 LIBFT 	 = $(LIB_DIR)/libft.a
 
-SRC 	 = push_swap.c operations.c
+SRC 	 = push_swap.c operations.c validation.c
 
 OBJ 	 = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 

@@ -19,99 +19,34 @@ void	ft_initialization(t_pu *pu)
 	pu->size_a = 0;
 	pu->i = 0;
 	pu->size_b = 0;
+	pu->min = 2147483647;
+	pu->max = -2147483648;
+	pu->operations = 0; //удалить
 }
-
-void	ft_count_digits(char *av, t_pu *pu)
-{
-	int i;
-	int fl;
-
-	i = 0;
-	fl = 0;
-	while (av[i] != '\0')
-	{
-		if (av[i] == ' ')
-		{
-			i++;
-			fl = 0;
-		}
-		else if (((av[i] >= '0' && av[i] <= '9') || av[i] == '-') && fl == 0)
-		{
-			pu->size_a++;
-			fl = 1;
-			i++;
-		}
-		else if ((av[i] >= '0' && av[i] <= '9') && fl == 1)
-			i++;
-	}
-}
-
-void		ft_check_repeat(t_pu	*push)
-{
-	int	i;
-	int j;
-
-	i = 0;
-	while (i < push->size_a)
-	{
-		j = 0;
-		while (j < push->size_a)
-		{
-			if (i == j || push->stack_a[i] != push->stack_a[j])
-				j++;
-			else
-			{
-				ft_printf("Repeating numbers");
-				exit(0);
-			}
-		}
-		i++;
-	}
-}
-
-void		ft_valid(char *av, t_pu *push)
-{
-	int i;
-
-	i = 0;
-	while (av[i] != '\0')
-	{
-		if ((av[i] == '-' && (av[i + 1] >= '0' && av[i + 1] <= '9')) && (i == 0 || av[i - 1] == ' '))
-			i++;
-		else if ((av[i] >= '0'&& av[i] <= '9') || (av[i] == ' '))
-			i++;
-		else
-		{
-			ft_printf("invalid file\n");
-			exit(0);
-		}
-	}
-	ft_count_digits(av, push);
-}
-
 
 void	printstack(t_pu *pu)
 {
-	int i;
-	int t = pu->size_a > pu->size_b ? pu->size_a : pu->size_b;
-
-	i = -1;
-	ft_printf("----------------------------\n");
-	ft_printf("|%-11c ||" "%11c |\n", 'a', 'b');
-	ft_printf("----------------------------");
-	ft_printf("\n");
-	while (++i < t)
-	{
-		if (i < pu->size_a)
-			ft_printf("|%11ld |", pu->stack_a[i]);
-		else
-			ft_printf("|%11s |", " ");
-		if (i < pu->size_b)
-			ft_printf("|%11ld |\n", pu->stack_b[i]);
-		else
-			ft_printf("|%11s |\n", " ");
-	}
-	ft_printf("----------------------------\n\n");
+//	int i;
+//	int t = pu->size_a > pu->size_b ? pu->size_a : pu->size_b;
+//
+//	i = -1;
+//	ft_printf("----------------------------\n");
+//	ft_printf("|%-11c ||" "%11c |\n", 'a', 'b');
+//	ft_printf("----------------------------");
+//	ft_printf("\n");
+//	while (++i < t)
+//	{
+//		if (i < pu->size_a)
+//			ft_printf("|%11ld |", pu->stack_a[i]);
+//		else
+//			ft_printf("|%11s |", " ");
+//		if (i < pu->size_b)
+//			ft_printf("|%11ld |\n", pu->stack_b[i]);
+//		else
+//			ft_printf("|%11s |\n", " ");
+//	}
+//	ft_printf("----------------------------\n\n");
+	pu->operations++;
 }
 
 void	ft_record(t_pu	*pu, char *av)
@@ -121,6 +56,10 @@ void	ft_record(t_pu	*pu, char *av)
 		if((*av >= '0'&& *av <= '9') || (*av == '-'))
 		{
 			pu->stack_a[pu->i] = ft_atol(av);
+			if (pu->stack_a[pu->i] < pu->min)
+				pu->min = pu->stack_a[pu->i];
+			if (pu->stack_a[pu->i] > pu->max)
+				pu->max = pu->stack_a[pu->i];
 			if (pu->stack_a[pu->i] > 2147483647 || pu->stack_a[pu->i] < -2147483648)
 			{
 				ft_printf("ERROR");
@@ -132,6 +71,47 @@ void	ft_record(t_pu	*pu, char *av)
 			pu->i++;
 		}
 		av++;
+	}
+}
+
+void ft_sort(t_pu	*pu)
+{
+	while(pu->size_a != 3)
+	{
+		if (pu->stack_a[0] == pu->max || pu->stack_a[0] == pu->min)
+			rotate_operations(pu, 'a');
+		else
+			push_operations(pu, 'b');
+	}
+	if (pu->stack_a[2] != pu->max)
+	{
+		if (pu->stack_a[0] == pu->max)
+			rotate_operations(pu, 'a');
+		else
+			reverse_rotate_operations(pu, 'a');
+	}
+	if (pu->stack_a[0] != pu->min)
+		swap_operations(pu, 'a');
+	while (pu->size_b > 0)
+	{
+		if(pu->stack_b[0] < pu->stack_a[(pu->size_a / 2) - 1])
+		{
+			push_operations(pu, 'a');
+			rotate_operations(pu, 'a');
+			while (pu->stack_a[0] < pu->stack_a[pu->size_a - 1])
+				push_operations(pu, 'b');
+			reverse_rotate_operations(pu, 'a');
+			while (pu->stack_a[0] != pu->min)
+				push_operations(pu, 'a');
+		}
+		else
+		{
+			while(pu->stack_a[pu->size_a - 1] > pu->stack_b[0])
+				reverse_rotate_operations(pu, 'a');
+			push_operations(pu, 'a');
+			while (pu->stack_a[pu->size_a - 1] != pu->max)
+				rotate_operations(pu, 'a');
+		}
 	}
 }
 
@@ -152,13 +132,7 @@ int		main(int ac, char **av)
 		ft_record(pu, av[count]);
 	ft_check_repeat(pu);
 	printstack(pu);
-	push_operations(pu, 'b');
-	push_operations(pu, 'b');
-	push_operations(pu, 'b');
-	push_operations(pu, 'b');
-	reverse_rotate_operations(pu, 'r');
-	reverse_rotate_operations(pu, 'r');
-	reverse_rotate_operations(pu, 'r');
-	reverse_rotate_operations(pu, 'r');
+	ft_sort(pu);
+	ft_printf("operations === %d\n", pu->operations);
 	exit (0);
 }
