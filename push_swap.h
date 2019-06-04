@@ -14,6 +14,25 @@
 #define PUSH_SWAP_H
 #include "libft/libft.h"
 
+typedef enum	e_flag
+{
+	move_a = 0,
+	move_b = 1,
+	dir_a = 2,
+	dir_b = 3,
+	res = 4,
+}				t_flag;
+
+typedef struct	s_swap
+{
+	int ra;
+	int rb;
+	int rr;
+	int rra;
+	int rrb;
+	int rrr;
+}				t_swap;
+
 typedef struct	s_push
 {
 	int		i;
@@ -23,6 +42,8 @@ typedef struct	s_push
 	int		size_b;
 	int 	max;
 	int 	min;
+	int 	chose[5];
+	int 	res;
 
 	int		operations; //удалить
 }				t_pu;
