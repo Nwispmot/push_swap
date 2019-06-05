@@ -79,3 +79,28 @@ void		ft_valid(char *av, t_pu *push)
 	}
 	ft_count_digits(av, push);
 }
+
+void	ft_record(t_pu	*pu, char *av)
+{
+	while(*av != '\0')
+	{
+		if((*av >= '0'&& *av <= '9') || (*av == '-'))
+		{
+			pu->stack_a[pu->i] = ft_atol(av);
+			if (pu->stack_a[pu->i] < pu->min)
+				pu->min = pu->stack_a[pu->i];
+			if (pu->stack_a[pu->i] > pu->max)
+				pu->max = pu->stack_a[pu->i];
+			if (pu->stack_a[pu->i] > 2147483647 || pu->stack_a[pu->i] < -2147483648)
+			{
+				ft_printf("ERROR");
+				exit(0);
+			}
+			while (*av != ' ' && *av != '\0')
+				av++;
+			av--;
+			pu->i++;
+		}
+		av++;
+	}
+}

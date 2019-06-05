@@ -43,7 +43,6 @@ typedef struct	s_push
 	int 	max;
 	int 	min;
 	int 	chose[5];
-	int 	res;
 
 	int		operations; //удалить
 }				t_pu;
@@ -56,5 +55,6 @@ void		reverse_rotate_operations(t_pu	*pu, char letter);
 void		ft_count_digits(char *av, t_pu *pu);
 void		ft_check_repeat(t_pu	*push);
 void		ft_valid(char *av, t_pu *push);
+void		ft_record(t_pu	*pu, char *av);
 
 #endif
