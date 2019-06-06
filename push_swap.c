@@ -31,26 +31,26 @@ void	ft_initialization(t_pu *pu)
 
 void	printstack(t_pu *pu)
 {
-//	int i;
-//	int t = pu->size_a > pu->size_b ? pu->size_a : pu->size_b;
-//
-//	i = -1;
-//	ft_printf("----------------------------\n");
-//	ft_printf("|%-11c ||" "%11c |\n", 'a', 'b');
-//	ft_printf("----------------------------");
-//	ft_printf("\n");
-//	while (++i < t)
-//	{
-//		if (i < pu->size_a)
-//			ft_printf("|%11ld |", pu->stack_a[i]);
-//		else
-//			ft_printf("|%11s |", " ");
-//		if (i < pu->size_b)
-//			ft_printf("|%11ld |\n", pu->stack_b[i]);
-//		else
-//			ft_printf("|%11s |\n", " ");
-//	}
-//	ft_printf("----------------------------\n\n");
+	int i;
+	int t = pu->size_a > pu->size_b ? pu->size_a : pu->size_b;
+
+	i = -1;
+	ft_printf("----------------------------\n");
+	ft_printf("|%-11c ||" "%11c |\n", 'a', 'b');
+	ft_printf("----------------------------");
+	ft_printf("\n");
+	while (++i < t)
+	{
+		if (i < pu->size_a)
+			ft_printf("|%11ld |", pu->stack_a[i]);
+		else
+			ft_printf("|%11s |", " ");
+		if (i < pu->size_b)
+			ft_printf("|%11ld |\n", pu->stack_b[i]);
+		else
+			ft_printf("|%11s |\n", " ");
+	}
+	ft_printf("----------------------------\n\n");
 	pu->operations++;
 }
 
@@ -68,19 +68,36 @@ int ft_chosenumber(t_pu	*pu, t_swap	*swap, int num)
 	swap->rrr = 0;
 	while (i < pu->size_a)
 	{
-		if(pu->stack_a[0] > num && pu->stack_a[pu->size_a - 1] < num)
-			return (swap->rb + swap->rrb) ;
-		if (pu->stack_a[i] < num && pu->stack_a[i + 1] > num)
-			break ;
+		if (num == pu->min)
+		{
+			if (pu->stack_a[i] == pu->max)
+				break ;
+		}
+		else
+		{
+			if (pu->stack_a[0] > num && pu->stack_a[pu->size_a - 1] < num)
+				return (swap->rb + swap->rrb);
+			if (pu->stack_a[i] < num && pu->stack_a[i + 1] > num)
+				break;
+		}
 		i++;
+
 	}
 	i++;
 	swap->ra = i;
 	i = pu->size_a - 1;
 	while (i > 0)
 	{
-		if (pu->stack_a[i] > num && pu->stack_a[i - 1] < num)
-			break ;
+		if (num == pu->min)
+		{
+			if (pu->stack_a[i - 1] == pu->max)
+				break ;
+		}
+		else
+		{
+			if (pu->stack_a[i] > num && pu->stack_a[i - 1] < num)
+				break;
+		}
 		j++;
 		i--;
 	}
@@ -107,35 +124,83 @@ int ft_chosenumber(t_pu	*pu, t_swap	*swap, int num)
 
 void	do_operations(t_pu	*pu, t_swap	*swap)
 {
-	while(swap->ra != 0)
+	while(swap->ra-- != 0)
 	{
 		rotate_operations(pu, 'a');
-		swap->ra--;
+		//swap->ra--;
+		ft_printf("ra\n");
 	}
-	while(swap->rb != 0)
+	while(swap->rb-- != 0)
 	{
 		rotate_operations(pu, 'b');
-		swap->rb--;
+		//swap->rb--;
+		ft_printf("rb\n");
 	}
-	while(swap->rr != 0)
+	while(swap->rr-- != 0)
 	{
 		rotate_operations(pu, 'r');
-		swap->rr--;
+		//swap->rr--;
+		ft_printf("rr\n");
 	}
-	while(swap->rra != 0)
+	while(swap->rra-- != 0)
 	{
 		reverse_rotate_operations(pu, 'a');
-		swap->rra--;
+		//swap->rra--;
+		ft_printf("rra\n");
 	}
-	while(swap->rrb != 0)
+	while(swap->rrb-- != 0)
 	{
 		reverse_rotate_operations(pu, 'b');
-		swap->rrb--;
+		//swap->rrb--;
+		ft_printf("rra\n");
 	}
-	while(swap->rrr != 0)
+	while(swap->rrr-- != 0)
 	{
 		reverse_rotate_operations(pu, 'r');
-		swap->rrr--;
+		//swap->rrr--;
+		ft_printf("rrr\n");
+	}
+}
+
+void ft_push(t_pu	*pu)
+{
+	int begin;
+	int i = 0;
+	long pre;
+
+	begin = pu->stack_a[i];
+	pre = pu->stack_a[i];
+	rotate_operations(pu, 'a');
+	ft_printf("ra\n");
+	while (pu->stack_a[0] != pu->max)
+	{
+		if (pu->stack_a[0] > pre)
+		{
+			pre = pu->stack_a[0];
+			rotate_operations(pu, 'a');
+			ft_printf("ra\n");
+		}
+		else {
+			push_operations(pu, 'b');
+			ft_printf("pb\n");
+		}
+
+	}
+	rotate_operations(pu, 'a');
+	ft_printf("ra\n");
+	pre = -2147483649;
+	while (pu->stack_a[0] != begin)
+	{
+		if (pu->stack_a[0] < begin && pu->stack_a[0] > pre)
+		{
+			pre = pu->stack_a[0];
+			rotate_operations(pu, 'a');
+			ft_printf("ra\n");
+		}
+		else {
+			push_operations(pu, 'b');
+			ft_printf("pb\n");
+		}
 	}
 }
 
@@ -148,22 +213,26 @@ void ft_sort(t_pu	*pu)
 
 	swap = (t_swap*)malloc(sizeof(t_swap));
 	i = 0;
-	while(pu->size_a != 3)
-	{
-		if (pu->stack_a[0] == pu->max || pu->stack_a[0] == pu->min)
-			rotate_operations(pu, 'a');
-		else
-			push_operations(pu, 'b');
-	}
-	if (pu->stack_a[2] != pu->max)
-	{
-		if (pu->stack_a[0] == pu->max)
-			rotate_operations(pu, 'a');
-		else
-			reverse_rotate_operations(pu, 'a');
-	}
-	if (pu->stack_a[0] != pu->min)
-		swap_operations(pu, 'a');
+//	while(pu->size_a != 3)
+//	{
+//		if ((pu->stack_a[0] == pu->max || pu->stack_a[0] == pu->min) && (pu->stack_b[0] < pu->stack_b[1]))
+//			rotate_operations(pu, 'r');
+//		else if (pu->stack_a[0] == pu->max || pu->stack_a[0] == pu->min)
+//			rotate_operations(pu, 'a');
+//		else
+//		{
+//			push_operations(pu, 'b');
+//			if (pu->stack_b[0] < pu->stack_b[1] && pu->stack_b[0] > pu->stack_b[2])
+//				swap_operations(pu, 'b');
+//		}
+//	}
+//	if (pu->stack_a[1] < pu->stack_a[0] && pu->stack_a[1] > pu->stack_a[2])
+//		swap_operations(pu, 'a');
+//	else if (pu->stack_a[1] < pu->stack_a[0] && pu->stack_a[1] < pu->stack_a[2])
+//		swap_operations(pu, 'a');
+//	else if (pu->stack_a[1] > pu->stack_a[0] && pu->stack_a[1] > pu->stack_a[2] && pu->stack_a[0] < pu->stack_a[2])
+//		swap_operations(pu, 'a');
+	ft_push(pu);
 	while (pu->size_b > 0)
 	{
 		swap->rb = 0;
@@ -201,18 +270,24 @@ void ft_sort(t_pu	*pu)
 		ft_chosenumber(pu, swap, pu->stack_b[num]);
 		do_operations(pu, swap);
 		push_operations(pu, 'a');
+		ft_printf("pa\n");
 		i = 0;
 	}
 	while (pu->stack_a[i] != pu->min)
 		i++;
-	if	(i < pu->size_a / 2)
+	if	(i <= pu->size_a / 2)
 	{
-		while (pu->stack_a[0] != pu->min)
+		while (pu->stack_a[0] != pu->min) {
 			rotate_operations(pu, 'a');
+			ft_printf("ra\n");
+		}
 	}
 	else
 		while (pu->stack_a[pu->size_a - 1] != pu->max)
+		{
 			reverse_rotate_operations(pu, 'a');
+			ft_printf("rra\n");
+		}
 }
 
 int		main(int ac, char **av)
