@@ -31,6 +31,10 @@ typedef struct	s_swap
 	int rra;
 	int rrb;
 	int rrr;
+	int	pb;
+	int	pa;
+	int	sa;
+	int	sb;
 }				t_swap;
 
 typedef struct	s_push
@@ -42,7 +46,6 @@ typedef struct	s_push
 	int		size_b;
 	int 	max;
 	int 	min;
-	int 	chose[5];
 
 	int		operations; //удалить
 }				t_pu;
@@ -56,5 +59,6 @@ void		ft_count_digits(char *av, t_pu *pu);
 void		ft_check_repeat(t_pu	*push);
 void		ft_valid(char *av, t_pu *push);
 void		ft_record(t_pu	*pu, char *av);
+void		ft_initialization(t_pu *pu);
 
 #endif
