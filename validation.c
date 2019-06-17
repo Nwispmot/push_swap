@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_count_digits(char *av, t_pu *pu)
+void		ft_count_digits(char *av, t_pu *pu)
 {
 	int i;
 	int fl;
@@ -37,9 +37,9 @@ void	ft_count_digits(char *av, t_pu *pu)
 	}
 }
 
-void		ft_check_repeat(t_pu	*push)
+void		ft_check_repeat(t_pu *push)
 {
-	int	i;
+	int i;
 	int j;
 
 	i = 0;
@@ -67,9 +67,10 @@ void		ft_valid(char *av, t_pu *push)
 	i = 0;
 	while (av[i] != '\0')
 	{
-		if ((av[i] == '-' && (av[i + 1] >= '0' && av[i + 1] <= '9')) && (i == 0 || av[i - 1] == ' '))
+		if ((av[i] == '-' && (av[i + 1] >= '0' && av[i + 1]
+		<= '9')) && (i == 0 || av[i - 1] == ' '))
 			i++;
-		else if ((av[i] >= '0'&& av[i] <= '9') || (av[i] == ' '))
+		else if ((av[i] >= '0' && av[i] <= '9') || (av[i] == ' '))
 			i++;
 		else
 		{
@@ -80,18 +81,19 @@ void		ft_valid(char *av, t_pu *push)
 	ft_count_digits(av, push);
 }
 
-void	ft_record(t_pu	*pu, char *av)
+void		ft_record(t_pu *pu, char *av)
 {
-	while(*av != '\0')
+	while (*av != '\0')
 	{
-		if((*av >= '0'&& *av <= '9') || (*av == '-'))
+		if ((*av >= '0' && *av <= '9') || (*av == '-'))
 		{
 			pu->stack_a[pu->i] = ft_atol(av);
 			if (pu->stack_a[pu->i] < pu->min)
 				pu->min = pu->stack_a[pu->i];
 			if (pu->stack_a[pu->i] > pu->max)
 				pu->max = pu->stack_a[pu->i];
-			if (pu->stack_a[pu->i] > 2147483647 || pu->stack_a[pu->i] < -2147483648)
+			if (pu->stack_a[pu->i] > 2147483647 ||
+			pu->stack_a[pu->i] < -2147483648)
 			{
 				ft_printf("Error\n");
 				exit(0);

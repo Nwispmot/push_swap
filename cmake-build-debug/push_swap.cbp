@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/nwispmot/Desktop/push_swap/checker.c">
+			<Option target="push_swap"/>
+		</Unit>
 		<Unit filename="/Users/nwispmot/Desktop/push_swap/init.c">
 			<Option target="push_swap"/>
 		</Unit>

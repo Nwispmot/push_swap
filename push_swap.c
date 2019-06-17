@@ -299,6 +299,5 @@ int		main(int ac, char **av)
             exit(0);
         ft_sort(pu);
     }
-	//ft_printf("operations === %d\n", pu->operations);
 	exit (0);
 }

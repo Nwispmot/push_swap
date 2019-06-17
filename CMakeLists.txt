@@ -94,4 +94,4 @@ add_executable(push_swap
         libft/pointer.c
         libft/uhex.c
         libft/unsigned.c
-        libft/width.c push_swap.c push_swap.h operations.c libft/ft_swap.c validation.c init.c)
+        libft/width.c checker.c push_swap.c push_swap.h operations.c libft/ft_swap.c validation.c init.c)

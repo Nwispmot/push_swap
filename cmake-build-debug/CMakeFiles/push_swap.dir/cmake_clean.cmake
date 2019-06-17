@@ -86,6 +86,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/push_swap.dir/libft/uhex.c.o"
   "CMakeFiles/push_swap.dir/libft/unsigned.c.o"
   "CMakeFiles/push_swap.dir/libft/width.c.o"
+  "CMakeFiles/push_swap.dir/checker.c.o"
   "CMakeFiles/push_swap.dir/push_swap.c.o"
   "CMakeFiles/push_swap.dir/operations.c.o"
   "CMakeFiles/push_swap.dir/libft/ft_swap.c.o"

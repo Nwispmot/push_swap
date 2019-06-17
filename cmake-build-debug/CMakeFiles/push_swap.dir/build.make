@@ -1188,9 +1188,22 @@ CMakeFiles/push_swap.dir/libft/width.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/push_swap.dir/libft/width.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/nwispmot/Desktop/push_swap/libft/width.c -o CMakeFiles/push_swap.dir/libft/width.c.s
 
+CMakeFiles/push_swap.dir/checker.c.o: CMakeFiles/push_swap.dir/flags.make
+CMakeFiles/push_swap.dir/checker.c.o: ../checker.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/push_swap.dir/checker.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/push_swap.dir/checker.c.o   -c /Users/nwispmot/Desktop/push_swap/checker.c
+
+CMakeFiles/push_swap.dir/checker.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/push_swap.dir/checker.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/nwispmot/Desktop/push_swap/checker.c > CMakeFiles/push_swap.dir/checker.c.i
+
+CMakeFiles/push_swap.dir/checker.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/push_swap.dir/checker.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/nwispmot/Desktop/push_swap/checker.c -o CMakeFiles/push_swap.dir/checker.c.s
+
 CMakeFiles/push_swap.dir/push_swap.c.o: CMakeFiles/push_swap.dir/flags.make
 CMakeFiles/push_swap.dir/push_swap.c.o: ../push_swap.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/push_swap.dir/push_swap.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/push_swap.dir/push_swap.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/push_swap.dir/push_swap.c.o   -c /Users/nwispmot/Desktop/push_swap/push_swap.c
 
 CMakeFiles/push_swap.dir/push_swap.c.i: cmake_force
@@ -1203,7 +1216,7 @@ CMakeFiles/push_swap.dir/push_swap.c.s: cmake_force
 
 CMakeFiles/push_swap.dir/operations.c.o: CMakeFiles/push_swap.dir/flags.make
 CMakeFiles/push_swap.dir/operations.c.o: ../operations.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/push_swap.dir/operations.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/push_swap.dir/operations.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/push_swap.dir/operations.c.o   -c /Users/nwispmot/Desktop/push_swap/operations.c
 
 CMakeFiles/push_swap.dir/operations.c.i: cmake_force
@@ -1216,7 +1229,7 @@ CMakeFiles/push_swap.dir/operations.c.s: cmake_force
 
 CMakeFiles/push_swap.dir/libft/ft_swap.c.o: CMakeFiles/push_swap.dir/flags.make
 CMakeFiles/push_swap.dir/libft/ft_swap.c.o: ../libft/ft_swap.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/push_swap.dir/libft/ft_swap.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/push_swap.dir/libft/ft_swap.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/push_swap.dir/libft/ft_swap.c.o   -c /Users/nwispmot/Desktop/push_swap/libft/ft_swap.c
 
 CMakeFiles/push_swap.dir/libft/ft_swap.c.i: cmake_force
@@ -1229,7 +1242,7 @@ CMakeFiles/push_swap.dir/libft/ft_swap.c.s: cmake_force
 
 CMakeFiles/push_swap.dir/validation.c.o: CMakeFiles/push_swap.dir/flags.make
 CMakeFiles/push_swap.dir/validation.c.o: ../validation.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/push_swap.dir/validation.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/push_swap.dir/validation.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/push_swap.dir/validation.c.o   -c /Users/nwispmot/Desktop/push_swap/validation.c
 
 CMakeFiles/push_swap.dir/validation.c.i: cmake_force
@@ -1242,7 +1255,7 @@ CMakeFiles/push_swap.dir/validation.c.s: cmake_force
 
 CMakeFiles/push_swap.dir/init.c.o: CMakeFiles/push_swap.dir/flags.make
 CMakeFiles/push_swap.dir/init.c.o: ../init.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/push_swap.dir/init.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/push_swap.dir/init.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/push_swap.dir/init.c.o   -c /Users/nwispmot/Desktop/push_swap/init.c
 
 CMakeFiles/push_swap.dir/init.c.i: cmake_force
@@ -1342,6 +1355,7 @@ push_swap_OBJECTS = \
 "CMakeFiles/push_swap.dir/libft/uhex.c.o" \
 "CMakeFiles/push_swap.dir/libft/unsigned.c.o" \
 "CMakeFiles/push_swap.dir/libft/width.c.o" \
+"CMakeFiles/push_swap.dir/checker.c.o" \
 "CMakeFiles/push_swap.dir/push_swap.c.o" \
 "CMakeFiles/push_swap.dir/operations.c.o" \
 "CMakeFiles/push_swap.dir/libft/ft_swap.c.o" \
@@ -1438,6 +1452,7 @@ push_swap: CMakeFiles/push_swap.dir/libft/pointer.c.o
 push_swap: CMakeFiles/push_swap.dir/libft/uhex.c.o
 push_swap: CMakeFiles/push_swap.dir/libft/unsigned.c.o
 push_swap: CMakeFiles/push_swap.dir/libft/width.c.o
+push_swap: CMakeFiles/push_swap.dir/checker.c.o
 push_swap: CMakeFiles/push_swap.dir/push_swap.c.o
 push_swap: CMakeFiles/push_swap.dir/operations.c.o
 push_swap: CMakeFiles/push_swap.dir/libft/ft_swap.c.o
@@ -1445,7 +1460,7 @@ push_swap: CMakeFiles/push_swap.dir/validation.c.o
 push_swap: CMakeFiles/push_swap.dir/init.c.o
 push_swap: CMakeFiles/push_swap.dir/build.make
 push_swap: CMakeFiles/push_swap.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Linking C executable push_swap"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Linking C executable push_swap"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/push_swap.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
