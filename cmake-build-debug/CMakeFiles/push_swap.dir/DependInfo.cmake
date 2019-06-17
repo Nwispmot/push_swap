@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/nwispmot/Desktop/push_swap/init.c" "/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/init.c.o"
   "/Users/nwispmot/Desktop/push_swap/libft/char_str.c" "/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/libft/char_str.c.o"
   "/Users/nwispmot/Desktop/push_swap/libft/check.c" "/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/libft/check.c.o"
   "/Users/nwispmot/Desktop/push_swap/libft/float.c" "/Users/nwispmot/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/libft/float.c.o"

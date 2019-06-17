@@ -52,7 +52,7 @@ void		ft_check_repeat(t_pu	*push)
 				j++;
 			else
 			{
-				ft_printf("Repeating numbers");
+				ft_printf("Error\n");
 				exit(0);
 			}
 		}
@@ -73,7 +73,7 @@ void		ft_valid(char *av, t_pu *push)
 			i++;
 		else
 		{
-			ft_printf("invalid file\n");
+			ft_printf("Error\n");
 			exit(0);
 		}
 	}
@@ -93,7 +93,7 @@ void	ft_record(t_pu	*pu, char *av)
 				pu->max = pu->stack_a[pu->i];
 			if (pu->stack_a[pu->i] > 2147483647 || pu->stack_a[pu->i] < -2147483648)
 			{
-				ft_printf("ERROR");
+				ft_printf("Error\n");
 				exit(0);
 			}
 			while (*av != ' ' && *av != '\0')

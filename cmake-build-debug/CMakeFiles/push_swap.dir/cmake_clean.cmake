@@ -90,6 +90,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/push_swap.dir/operations.c.o"
   "CMakeFiles/push_swap.dir/libft/ft_swap.c.o"
   "CMakeFiles/push_swap.dir/validation.c.o"
+  "CMakeFiles/push_swap.dir/init.c.o"
   "push_swap.pdb"
   "push_swap"
 )

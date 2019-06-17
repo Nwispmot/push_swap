@@ -14,15 +14,6 @@
 #define PUSH_SWAP_H
 #include "libft/libft.h"
 
-typedef enum	e_flag
-{
-	move_a = 0,
-	move_b = 1,
-	dir_a = 2,
-	dir_b = 3,
-	res = 4,
-}				t_flag;
-
 typedef struct	s_swap
 {
 	int ra;
@@ -60,5 +51,6 @@ void		ft_check_repeat(t_pu	*push);
 void		ft_valid(char *av, t_pu *push);
 void		ft_record(t_pu	*pu, char *av);
 void		ft_initialization(t_pu *pu);
+void	    printstack(t_pu *pu);
 
 #endif

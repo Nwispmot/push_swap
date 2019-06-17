@@ -12,31 +12,6 @@
 
 #include "push_swap.h"
 
-void	printstack(t_pu *pu)
-{
-	int i;
-	int t = pu->size_a > pu->size_b ? pu->size_a : pu->size_b;
-
-	i = -1;
-	ft_printf("----------------------------\n");
-	ft_printf("|%-11c ||" "%11c |\n", 'a', 'b');
-	ft_printf("----------------------------");
-	ft_printf("\n");
-	while (++i < t)
-	{
-		if (i < pu->size_a)
-			ft_printf("|%11ld |", pu->stack_a[i]);
-		else
-			ft_printf("|%11s |", " ");
-		if (i < pu->size_b)
-			ft_printf("|%11ld |\n", pu->stack_b[i]);
-		else
-			ft_printf("|%11s |\n", " ");
-	}
-	ft_printf("----------------------------\n\n");
-	pu->operations++;
-}
-
 int ft_chosenumber(t_pu	*pu, t_swap	*swap, int num)
 {
 	int i;
@@ -139,56 +114,56 @@ void	do_operations(t_pu	*pu, t_swap	*swap)
 	}
 }
 
-int sorted(t_pu	*pu)
-{
-	int i;
+int sorted(t_pu	*pu, int r) {
+    int i;
 
-	i = 0;
-	if ((pu->stack_a[0] == pu->min && pu->stack_a[pu->size_a - 1] == pu->max && pu->stack_a[1] > pu->stack_a[0]) ||
-	(pu->stack_a[0] == pu->max && pu->stack_a[pu->size_a - 1] < pu->stack_a[0] && pu->stack_a[1] == pu->min)
-	|| (pu->stack_a[1] >  pu->stack_a[0] && pu->stack_a[pu->size_a - 1] <  pu->stack_a[0]))
-		i++;
-	else
-		return (0);
-	while(i < pu->size_a - 1)
-	{
-		if (pu->stack_a[i] == pu->min && pu->stack_a[i - 1] == pu->max && pu->stack_a[i + 1]  > pu->stack_a[i])
-			i++;
-		if (pu->stack_a[i] == pu->max && pu->stack_a[i + 1] == pu->min && pu->stack_a[i - 1]  < pu->stack_a[i])
-			i++;
-		else if (pu->stack_a[i - 1] < pu->stack_a[i] && pu->stack_a[i + 1] > pu->stack_a[i])
-			i++;
-		else
-			return (0);
-	}
-	if ((pu->stack_a[pu->size_a - 1] == pu->min && pu->stack_a[pu->size_a - 2] == pu->max && pu->stack_a[pu->size_a - 1] < pu->stack_a[0]) ||
-		(pu->stack_a[pu->size_a - 1] == pu->max && pu->stack_a[pu->size_a - 2] < pu->stack_a[pu->size_a - 1] && pu->stack_a[0] == pu->min)
-		|| (pu->stack_a[pu->size_a - 1] > pu->stack_a[pu->size_a - 2] && pu->stack_a[pu->size_a - 1] < pu->stack_a[0]))
-		i = 0;
-	else
-		return (0);
-	while (pu->stack_a[i] != pu->min)
-		i++;
-	if	(i <= pu->size_a / 2)
-	{
-		while (pu->stack_a[0] != pu->min)
-		{
-			rotate_operations(pu, 'a');
-			ft_printf("ra\n");
-		}
-	}
-	else
-		while (pu->stack_a[pu->size_a - 1] != pu->max)
-		{
-			reverse_rotate_operations(pu, 'a');
-			ft_printf("rra\n");
-		}
+    i = 0;
+    if ((pu->stack_a[0] == pu->min && pu->stack_a[pu->size_a - 1] == pu->max && pu->stack_a[1] > pu->stack_a[0]) ||
+        (pu->stack_a[0] == pu->max && pu->stack_a[pu->size_a - 1] < pu->stack_a[0] && pu->stack_a[1] == pu->min)
+        || (pu->stack_a[1] > pu->stack_a[0] && pu->stack_a[pu->size_a - 1] < pu->stack_a[0]))
+        i++;
+    else
+        return (0);
+    while (i < pu->size_a - 1) {
+        if (pu->stack_a[i] == pu->min && pu->stack_a[i - 1] == pu->max && pu->stack_a[i + 1] > pu->stack_a[i])
+            i++;
+        else if (pu->stack_a[i] == pu->max && pu->stack_a[i + 1] == pu->min && pu->stack_a[i - 1] < pu->stack_a[i])
+            i++;
+        else if (pu->stack_a[i - 1] < pu->stack_a[i] && pu->stack_a[i + 1] > pu->stack_a[i])
+            i++;
+        else
+            return (0);
+    }
+    if ((pu->stack_a[pu->size_a - 1] == pu->min && pu->stack_a[pu->size_a - 2] == pu->max &&
+         pu->stack_a[pu->size_a - 1] < pu->stack_a[0]) ||
+        (pu->stack_a[pu->size_a - 1] == pu->max && pu->stack_a[pu->size_a - 2] < pu->stack_a[pu->size_a - 1] &&
+         pu->stack_a[0] == pu->min)
+        || (pu->stack_a[pu->size_a - 1] > pu->stack_a[pu->size_a - 2] && pu->stack_a[pu->size_a - 1] < pu->stack_a[0]))
+        i = 0;
+    else
+        return (0);
+    if (r == 1)
+    {
+        while (pu->stack_a[i] != pu->min)
+            i++;
+        if (i <= pu->size_a / 2) {
+            while (pu->stack_a[0] != pu->min) {
+                rotate_operations(pu, 'a');
+                ft_printf("ra\n");
+            }
+        }
+        else
+            while (pu->stack_a[pu->size_a - 1] != pu->max) {
+                reverse_rotate_operations(pu, 'a');
+                ft_printf("rra\n");
+            }
+    }
 	exit (0);
 }
 
 void ft_push(t_pu	*pu)
 {
-		while(pu->size_a != 3)
+		while(pu->size_a > 3)
 		{
 			if ((pu->stack_a[0] == pu->max || pu->stack_a[0] == pu->min) && (pu->stack_b[0] < pu->stack_b[1]))
 			{
@@ -277,9 +252,25 @@ void ft_sort(t_pu	*pu)
 		ft_printf("pa\n");
 		i = 0;
 	}
-	if (sorted(pu) == 0)
+    while (pu->stack_a[i] != pu->min)
+        i++;
+    if	(i <= pu->size_a / 2)
+    {
+        while (pu->stack_a[0] != pu->min)
+        {
+            rotate_operations(pu, 'a');
+            ft_printf("ra\n");
+        }
+    }
+    else
+        while (pu->stack_a[pu->size_a - 1] != pu->max)
+        {
+            reverse_rotate_operations(pu, 'a');
+            ft_printf("rra\n");
+        }
+	if (sorted(pu, 0) == 0)
 	{
-		ft_printf("ErrorS\n");
+		ft_printf("Error\n\n");
 		exit(0);
 	}
 }
@@ -295,16 +286,19 @@ int		main(int ac, char **av)
 	ft_initialization(pu);
 	while (++count < ac)
 		ft_valid(av[count], pu);
-	pu->stack_a = (long *)malloc(pu->size_a * sizeof(long));
-	pu->stack_b = (long *)malloc(pu->size_a * sizeof(long));
-	count = 0;
-	while (++count < ac)
-		ft_record(pu, av[count]);
-	ft_check_repeat(pu);
-	printstack(pu);
-	if (sorted(pu) != 0)
-		exit(0);
-	ft_sort(pu);
+	if (pu->size_a > 1)
+	{
+        pu->stack_a = (long *) malloc(pu->size_a * sizeof(long));
+        pu->stack_b = (long *) malloc(pu->size_a * sizeof(long));
+        count = 0;
+        while (++count < ac)
+            ft_record(pu, av[count]);
+        ft_check_repeat(pu);
+        printstack(pu);
+        if (sorted(pu, 1) != 0)
+            exit(0);
+        ft_sort(pu);
+    }
 	//ft_printf("operations === %d\n", pu->operations);
 	exit (0);
 }

@@ -29,7 +29,7 @@ void	 read_input(t_pu	*pu)
 	char	*temp;
 	char	**oper;
 	int		i = 0;
-	int		len;
+	//int		len;
 	char	*str;
 
 	while ((ret = read(0, buff, BUFF_SIZE)) > 0)
@@ -37,25 +37,27 @@ void	 read_input(t_pu	*pu)
 		buff[ret] = '\0';
 		del = temp;
 		temp = ft_strjoin(temp, buff);
-		//free(del);
-	}
-	oper = ft_strsplit(temp, '\n');
-	len = ft_strlen(oper[0]);
-	ft_printf("%d\n", len);
-	while (oper[i] != NULL)
-	{
-		if (i == 0)
-		{
-			str = oper[i];
-			ft_printf("%s\n", (str + 35));
-		}
-		else
-		{
-			ft_printf("op%d == %s\n", i, oper[i]);
-		}
 		i++;
 	}
+	if (i == 0)
+        return ;
 	i = 0;
+	oper = ft_strsplit(temp, '\n');
+	//len = ft_strlen(oper[0]);
+	//ft_printf("%d\n", len);
+//	while (oper[i] != NULL)
+//	{
+//		if (i == 0)
+//		{
+//			str = oper[i];
+//			ft_printf("%s\n", (str + 35));
+//		}
+//		else
+//		{
+//			ft_printf("op%d == %s\n", i, oper[i]);
+//		}
+//		i++;
+//	}
 	while (oper[i] != NULL)
 	{
 		if (i == 0)
@@ -86,7 +88,7 @@ void	 read_input(t_pu	*pu)
 				swap_operations(pu, 'b');
 			else
 			{
-				ft_printf("Error1\n");
+				ft_printf("Error\n");
 				exit(0);
 			}
 
@@ -107,17 +109,20 @@ int main(int ac, char **av)
 	ft_initialization(pu);
 	while (++count < ac)
 		ft_valid(av[count], pu);
-	pu->stack_a = (long *)malloc(pu->size_a * sizeof(long));
-	pu->stack_b = (long *)malloc(pu->size_a * sizeof(long));
-	count = 0;
-	while (++count < ac)
-		ft_record(pu, av[count]);
-	ft_check_repeat(pu);
-	//printstack(pu);
-	read_input(pu);
-	if (checker(pu) == 1)
-		ft_printf("OK\n");
-	else
-		ft_printf("KO\n");
+	if (pu->size_a > 0)
+	{
+        pu->stack_a = (long *) malloc(pu->size_a * sizeof(long));
+        pu->stack_b = (long *) malloc(pu->size_a * sizeof(long));
+        count = 0;
+        while (++count < ac)
+            ft_record(pu, av[count]);
+        ft_check_repeat(pu);
+        read_input(pu);
+        printstack(pu);
+        if (checker(pu) == 1)
+            ft_printf("OK\n");
+        else
+            ft_printf("KO\n");
+    }
 	exit (0);
 }
