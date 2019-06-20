@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 # include "libft.h"
 # include <stdarg.h>
-//# include <stdlib.h>
 
 typedef enum	e_flag
 {

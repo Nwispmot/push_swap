@@ -106,8 +106,8 @@ char				*ft_ltoa(long long n);
 char				*ft_unsigned_ltoa_base(unsigned long long value,
 		int base, char c);
 char				*ft_strdup_free(const char *s1, char *str);
-int		ft_printf(char *string, ...);
+int					ft_printf(char *string, ...);
 long long			ft_atol(const char *str);
-void	ft_swap(long *a, long *b);
+void				ft_swap(long *a, long *b);
 
 #endif

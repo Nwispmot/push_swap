@@ -33,6 +33,7 @@ typedef struct	s_push
 	int			size_b;
 	int			max;
 	int			min;
+	int			option_v;
 }				t_pu;
 
 void			printstack(t_pu *pu);
@@ -46,5 +47,9 @@ void			ft_valid(char *av, t_pu *push);
 void			ft_record(t_pu	*pu, char *av);
 void			ft_initialization(t_pu *pu);
 void			printstack(t_pu *pu);
-
+void			ft_sort(t_pu	*pu, t_swap *swap);
+int				sorted(t_pu	*pu, int r);
+void			do_operations(t_pu	*pu, t_swap	*swap);
+int				ft_chosenumber(t_pu	*pu, t_swap	*swap, int num, int i);
+void			rotate(t_pu *pu, int i);
 #endif

@@ -23,6 +23,7 @@ void	swap_operations(t_pu *pu, char letter)
 		swap_operations(pu, 'a');
 		swap_operations(pu, 'b');
 	}
+	printstack(pu);
 }
 
 void	ft_pa(t_pu *pu, int i)
@@ -63,6 +64,7 @@ void	push_operations(t_pu *pu, char letter)
 	}
 	else if (letter == 'a' && pu->size_b > 0)
 		ft_pa(pu, i);
+	printstack(pu);
 }
 
 void	rotate_operations(t_pu *pu, char letter)
@@ -118,4 +120,5 @@ void	reverse_rotate_operations(t_pu *pu, char letter)
 		reverse_rotate_operations(pu, 'a');
 		reverse_rotate_operations(pu, 'b');
 	}
+	printstack(pu);
 }

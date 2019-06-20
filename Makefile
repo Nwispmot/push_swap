@@ -6,7 +6,7 @@ NAME	 = push_swap
 NAMEC    = checker
 LIBFT 	 = $(LIB_DIR)/libft.a
 
-SRC 	 = push_swap.c operations.c validation.c init.c
+SRC 	 = push_swap.c operations.c validation.c init.c sort.c chosenumber.c
 SRCC     = checker.c init.c validation.c operations.c
 
 OBJ 	 = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))

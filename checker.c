@@ -65,30 +65,25 @@ void	doop(t_pu *pu, char **oper, int i)
 void	read_input(t_pu *pu)
 {
 	char	buff[BUFF_SIZE + 1];
-	char	*del;
 	int		ret;
 	char	*temp;
 	char	**oper;
 	int		i;
 
 	i = 0;
+	temp = ft_strnew(0);
 	while ((ret = read(0, buff, BUFF_SIZE)) > 0)
 	{
 		buff[ret] = '\0';
-		del = temp;
-		temp = ft_strjoin(temp, buff);
+		temp = ft_strjoin_free(temp, buff, 1, 0);
 		i++;
 	}
 	if (i == 0)
 		return ;
-	i = -1;
 	oper = ft_strsplit(temp, '\n');
+	i = -1;
 	while (oper[++i] != NULL)
-	{
-		if (i == 0)
-			oper[i] += 35;
 		doop(pu, oper, i);
-	}
 }
 
 int		main(int ac, char **av)

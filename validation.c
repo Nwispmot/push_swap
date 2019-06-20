@@ -72,6 +72,8 @@ void		ft_valid(char *av, t_pu *push)
 			i++;
 		else if ((av[i] >= '0' && av[i] <= '9') || (av[i] == ' '))
 			i++;
+		else if (av[0] == '-' && av[1] == 'v')
+			return ;
 		else
 		{
 			ft_printf("Error\n");
@@ -85,7 +87,9 @@ void		ft_record(t_pu *pu, char *av)
 {
 	while (*av != '\0')
 	{
-		if ((*av >= '0' && *av <= '9') || (*av == '-'))
+		if (av[0] == '-' && av[1] == 'v')
+			pu->option_v = 1;
+		else if ((*av >= '0' && *av <= '9') || (*av == '-'))
 		{
 			pu->stack_a[pu->i] = ft_atol(av);
 			if (pu->stack_a[pu->i] < pu->min)
